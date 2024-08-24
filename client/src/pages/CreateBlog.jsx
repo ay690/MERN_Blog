@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Box, Button, InputLabel, TextField, Typography } from "@mui/material";
 import toast from "react-hot-toast";
+
 const CreateBlog = () => {
   const id = localStorage.getItem("userId");
   const navigate = useNavigate();
@@ -11,14 +12,16 @@ const CreateBlog = () => {
     description: "",
     image: "",
   });
-  // input change
+
+  // Input change handler
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
-  //form
+
+  // Form submission handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -36,31 +39,40 @@ const CreateBlog = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <Box
-          width={"50%"}
-          border={3}
-          borderRadius={10}
-          padding={3}
-          margin="auto"
-          boxShadow={"10px 10px 20px #ccc"}
-          display="flex"
-          flexDirection={"column"}
-          marginTop="30px"
+          sx={{
+            width: { xs: "90%", sm: "75%", md: "50%" },
+            border: 3,
+            borderRadius: 10,
+            padding: { xs: 2, sm: 3 },
+            margin: "auto",
+            boxShadow: "10px 10px 20px #ccc",
+            display: "flex",
+            flexDirection: "column",
+            marginTop: "30px",
+            marginBottom: "20px",
+          }}
         >
           <Typography
-            variant="h2"
-            textAlign={"center"}
+            variant="h4"
+            textAlign="center"
             fontWeight="bold"
-            padding={3}
+            padding={2}
             color="gray"
           >
-            Create A Pots
+            Create A Post
           </Typography>
           <InputLabel
-            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+            sx={{
+              mb: 1,
+              mt: 2,
+              fontSize: "20px",
+              fontWeight: "bold",
+            }}
           >
             Title
           </InputLabel>
@@ -73,7 +85,12 @@ const CreateBlog = () => {
             required
           />
           <InputLabel
-            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+            sx={{
+              mb: 1,
+              mt: 2,
+              fontSize: "20px",
+              fontWeight: "bold",
+            }}
           >
             Description
           </InputLabel>
@@ -86,7 +103,12 @@ const CreateBlog = () => {
             required
           />
           <InputLabel
-            sx={{ mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" }}
+            sx={{
+              mb: 1,
+              mt: 2,
+              fontSize: "20px",
+              fontWeight: "bold",
+            }}
           >
             Image URL
           </InputLabel>
@@ -98,7 +120,16 @@ const CreateBlog = () => {
             variant="outlined"
             required
           />
-          <Button type="submit" color="primary" variant="contained">
+          <Button
+            type="submit"
+            color="primary"
+            variant="contained"
+            sx={{
+              mt: 2,
+              width: { xs: "100%", sm: "fit-content" },
+              alignSelf: "center",
+            }}
+          >
             SUBMIT
           </Button>
         </Box>

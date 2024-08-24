@@ -38,16 +38,25 @@ export default function BlogCard({
       console.log(error);
     }
   };
+
   return (
     <Card
       sx={{
-        width: "40%",
+        width: {
+          xs: "100%",
+          sm: "80%",
+          md: "60%",
+          lg: "40%",
+        },
         margin: "auto",
         mt: 2,
         mb: 5,
-        padding: 2,
+        padding: {
+          xs: 1,
+          sm: 2,
+        },
         boxShadow: "5px 5px 10px #ccc",
-        ":hover:": {
+        ":hover": {
           boxShadow: "10px 10px 20px #ccc",
         },
       }}
@@ -65,19 +74,29 @@ export default function BlogCard({
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            {username}
+            {username ? username[0].toUpperCase() : ""}
           </Avatar>
         }
         title={username}
         subheader={moment(time).format("lll")}
       />
-      <CardMedia component="img" height="194" image={image} alt="Paella dish" />
+      <CardMedia
+        component="img"
+        sx={{
+          height: {
+            xs: 140,
+            sm: 194,
+          },
+        }}
+        image={image}
+        alt="Paella dish"
+      />
       <CardContent>
         <Typography variant="h6" color="text.secondary">
-          Title : {title}
+          Title: {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Description : {description}
+          Description: {description}
         </Typography>
       </CardContent>
     </Card>

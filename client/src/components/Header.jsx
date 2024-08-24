@@ -20,7 +20,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState();
 
-  //logout
+  // logout
   const handleLogout = () => {
     try {
       dispatch(authActions.logout());
@@ -31,17 +31,44 @@ const Header = () => {
       console.log(error);
     }
   };
+
   return (
     <>
       <AppBar position="sticky">
-        <Toolbar>
-          <Typography variant="h4">My Blog APP</Typography>
+        <Toolbar
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{ flexGrow: 1, textAlign: { xs: "center", sm: "left" } }}
+          >
+            My Blog APP
+          </Typography>
           {isLogin && (
-            <Box display={"flex"} marginLeft="auto" marginRight={"auto"}>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: { xs: "column", sm: "row" },
+                alignItems: "center",
+                justifyContent: "center",
+                width: { xs: "100%", sm: "auto" },
+                mt: { xs: 2, sm: 0 },
+              }}
+            >
               <Tabs
                 textColor="inherit"
                 value={value}
                 onChange={(e, val) => setValue(val)}
+                sx={{
+                  flexGrow: 1,
+                  "& .MuiTabs-flexContainer": {
+                    justifyContent: { xs: "center", sm: "flex-start" },
+                  },
+                }}
               >
                 <Tab label="Blogs" LinkComponent={Link} to="/blogs" />
                 <Tab label="My Blogs" LinkComponent={Link} to="/my-blogs" />
@@ -53,7 +80,14 @@ const Header = () => {
               </Tabs>
             </Box>
           )}
-          <Box display={"flex"} marginLeft="auto">
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: { xs: "center", sm: "flex-end" },
+              width: { xs: "100%", sm: "auto" },
+              mt: { xs: 2, sm: 0 },
+            }}
+          >
             {!isLogin && (
               <>
                 <Button
