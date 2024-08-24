@@ -34,7 +34,7 @@ const Header = () => {
 
   return (
     <>
-      <AppBar position="sticky">
+      <AppBar position="sticky" sx={{ backgroundColor: "#C41E3A" }}>
         <Toolbar
           sx={{
             display: "flex",
@@ -46,7 +46,7 @@ const Header = () => {
             variant="h4"
             sx={{ flexGrow: 1, textAlign: { xs: "center", sm: "left" } }}
           >
-            My Blog APP
+           Blog APP
           </Typography>
           {isLogin && (
             <Box

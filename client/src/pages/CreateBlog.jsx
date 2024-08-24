@@ -64,7 +64,7 @@ const CreateBlog = () => {
             padding={2}
             color="gray"
           >
-            Create A Post
+            Create Your Post
           </Typography>
           <InputLabel
             sx={{
