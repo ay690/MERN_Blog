@@ -9,6 +9,7 @@ const Blogs = () => {
       const { data } = await axios.get("/api/v1/blog/all-blog");
       if (data?.success) {
         setBlogs(data?.blogs);
+        console.log(data?.blogs)
       }
     } catch (error) {
       console.log(error);

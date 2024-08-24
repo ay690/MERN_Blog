@@ -10,6 +10,7 @@ import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Box, IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import moment from "moment";
 import axios from "axios";
 
 export default function BlogCard({
@@ -43,6 +44,7 @@ export default function BlogCard({
         width: "40%",
         margin: "auto",
         mt: 2,
+        mb: 5,
         padding: 2,
         boxShadow: "5px 5px 10px #ccc",
         ":hover:": {
@@ -67,7 +69,7 @@ export default function BlogCard({
           </Avatar>
         }
         title={username}
-        subheader={time}
+        subheader={moment(time).format("lll")}
       />
       <CardMedia component="img" height="194" image={image} alt="Paella dish" />
       <CardContent>

@@ -37,7 +37,7 @@ const UserBlogs = () => {
           />
         ))
       ) : (
-        <h1>You Havent Created a blog</h1>
+        <h1 style={{minHeight: "100vh" , display: "flex", justifyContent:"center", alignItems: "center"}}>You Haven't Created a blog</h1>
       )}
     </div>
   );
